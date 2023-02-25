@@ -5,6 +5,7 @@ using UnityEngine;
 
 //Class nay dung de xoa vien dan, neu nhu vien dan do bay cach xa camera 70m thi xoa
 //abstract la class k ro rang, chua duoc dinh nghia se lam cong viec gif
+//Despawn co tac dung la dua obj do tro lai pool sau khi 1 khoang time hoac distance
 public abstract class Despawn : ClassBehaviour 
 {
 

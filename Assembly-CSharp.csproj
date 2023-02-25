@@ -93,6 +93,9 @@
     <Compile Include="Assets\_Data\Scripts\GameCtrl.cs" />
     <Compile Include="Assets\_Data\Spawner\JunkSpawner.cs" />
     <Compile Include="Assets\_Data\Resources\Junk\JunkSO.cs" />
+    <Compile Include="Assets\_Data\Spawner\FXSpawner.cs" />
+    <Compile Include="Assets\_Data\FX\FXDespawn.cs" />
+    <Compile Include="Assets\_Data\Despawn\DespawnByTime.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

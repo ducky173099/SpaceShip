@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
 //DamageReceiver no se nhan tuong tac va bi tru damage
-public class DamageReceiver : ClassBehaviour
+public abstract class DamageReceiver : ClassBehaviour
 {
     [Header("Den tu Damage Receiver")]
 
@@ -75,9 +75,6 @@ public class DamageReceiver : ClassBehaviour
         this.OnDead();
     }
 
-    protected virtual void OnDead()
-    {
-        //For override
-    }
+    protected abstract void OnDead();
 
 }

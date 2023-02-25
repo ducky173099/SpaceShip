@@ -20,9 +20,23 @@ public class JunkDamageReceiver : DamageReceiver
         this.junkCtrl = transform.parent.GetComponent<JunkCtrl>();
     }
 
-    protected override void OnDead()
+    protected override void OnDead() //ham nay dc goi khi object do bi huy
     {
         this.junkCtrl.JunkDespawn.DespawnObject();
+        this.OnDeadFX(); //cai them hieu ung khi dead
+
+    }
+
+    protected virtual void OnDeadFX()
+    {
+        string fxName = this.GetOnDeadFXName();// lay ten hieu ung
+        Transform fxOnDead = FXSpawner.Instance.Spawn(fxName, transform.position, transform.rotation);
+        fxOnDead.gameObject.SetActive(true);
+    }
+
+    protected virtual string GetOnDeadFXName()
+    {
+        return FXSpawner.smoke1;
     }
 
     public override void Reborn()
