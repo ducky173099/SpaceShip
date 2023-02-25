@@ -92,6 +92,7 @@
     <Compile Include="Assets\_Data\Bullet\BulletDamSender.cs" />
     <Compile Include="Assets\_Data\Scripts\GameCtrl.cs" />
     <Compile Include="Assets\_Data\Spawner\JunkSpawner.cs" />
+    <Compile Include="Assets\_Data\Resources\Junk\JunkSO.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
