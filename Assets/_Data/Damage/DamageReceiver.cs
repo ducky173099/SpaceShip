@@ -15,7 +15,13 @@ public class DamageReceiver : ClassBehaviour
 
     protected override void OnEnable()
     {
-        base.OnEnable();
+        //base.OnEnable();
+        this.Reborn();
+    }
+
+    protected override void ResetValue()
+    {
+        base.ResetValue();
         this.Reborn();
     }
 

@@ -24,4 +24,13 @@ public class JunkDamageReceiver : DamageReceiver
     {
         this.junkCtrl.JunkDespawn.DespawnObject();
     }
+
+    public override void Reborn()
+    {
+        //ta gan lai gia tri cua hpMax truoc khi chay base.Reborn()
+        // boi vi truoc khi no gan hp = hpMax ben ham tu class cha
+        // ta gan hpMax = hpMax tu class JunkSO
+        this.hpMax = this.junkCtrl.JunkSO.hpMax;
+        base.Reborn();
+    }
 }
