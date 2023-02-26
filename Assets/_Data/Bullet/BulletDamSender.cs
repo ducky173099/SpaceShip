@@ -21,11 +21,13 @@ public class BulletDamSender : DamageSender
     public override void Send(DamageReceiver damageReceiver)
     {
         base.Send(damageReceiver);
-        this.DestroyBullet();
+        this.DestroyBullet(); //xoa vien dan khi va cham
     }
 
     protected virtual void DestroyBullet()
     {
+        //Debug.Log("===========> trungggg");
+
         this.bulletCtrl.BulletDespawn.DespawnObject();
     }
 }

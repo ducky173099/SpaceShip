@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ParentFly : ClassBehaviour
 {
-    [SerializeField] protected float moveSpeed = 1; // toc do
+    [SerializeField] protected float moveSpeed = 1f; // toc do
     [SerializeField] protected Vector3 direction = Vector3.right; // huong bay
 
     void Update()

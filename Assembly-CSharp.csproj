@@ -80,22 +80,25 @@
     <Compile Include="Assets\_Data\Junk\JunkDamageReceiver.cs" />
     <Compile Include="Assets\_Data\Scripts\ParentFly.cs" />
     <Compile Include="Assets\_Data\Junk\JunkRotate.cs" />
+    <Compile Include="Assets\_Data\FX\FXDespawn.cs" />
     <Compile Include="Assets\_Data\Despawn\Despawn.cs" />
+    <Compile Include="Assets\_Data\Spawner\FXSpawner.cs" />
     <Compile Include="Assets\_Data\Scripts\FollowTarget.cs" />
+    <Compile Include="Assets\_Data\Resources\Junk\JunkSO.cs" />
     <Compile Include="Assets\_Data\Damage\DamageReceiver.cs" />
     <Compile Include="Assets\2D Pixel Spaceships (2 Small Ships + Explosions)\Scripts\ships\ExplosionController.cs" />
     <Compile Include="Assets\2D Pixel Spaceships (2 Small Ships + Explosions)\Scripts\Tools.cs" />
     <Compile Include="Assets\_Data\Ship\ShipMovement.cs" />
     <Compile Include="Assets\_Data\Spawner\Spawner.cs" />
     <Compile Include="Assets\_Data\Spawner\BulletSpawner.cs" />
+    <Compile Include="Assets\_Data\Despawn\DespawnByTime.cs" />
     <Compile Include="Assets\_Data\Bullet\BulletAbstract.cs" />
     <Compile Include="Assets\_Data\Bullet\BulletDamSender.cs" />
     <Compile Include="Assets\_Data\Scripts\GameCtrl.cs" />
     <Compile Include="Assets\_Data\Spawner\JunkSpawner.cs" />
-    <Compile Include="Assets\_Data\Resources\Junk\JunkSO.cs" />
-    <Compile Include="Assets\_Data\Spawner\FXSpawner.cs" />
-    <Compile Include="Assets\_Data\FX\FXDespawn.cs" />
-    <Compile Include="Assets\_Data\Despawn\DespawnByTime.cs" />
+    <Compile Include="Assets\_Data\Item\DropRate.cs" />
+    <Compile Include="Assets\_Data\Resources\Item\ItemSO.cs" />
+    <Compile Include="Assets\_Data\Item\DropManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

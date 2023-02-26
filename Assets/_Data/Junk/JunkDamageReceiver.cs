@@ -22,9 +22,10 @@ public class JunkDamageReceiver : DamageReceiver
 
     protected override void OnDead() //ham nay dc goi khi object do bi huy
     {
-        this.junkCtrl.JunkDespawn.DespawnObject();
         this.OnDeadFX(); //cai them hieu ung khi dead
-
+        this.junkCtrl.JunkDespawn.DespawnObject();
+        //roi item
+        DropManager.Instance.Drop(this.junkCtrl.JunkSO.dropList);
     }
 
     protected virtual void OnDeadFX()

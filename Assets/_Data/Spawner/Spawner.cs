@@ -5,8 +5,10 @@ using UnityEngine;
 //public class Spawner : MonoBehaviour
 public abstract class Spawner : ClassBehaviour
 {
+    [Header("Spawner")]
 
     [SerializeField] protected Transform holder;
+
     [SerializeField] protected int spawnedCount = 0;
     public int SpawnedCount => spawnedCount;
 
@@ -89,10 +91,11 @@ public abstract class Spawner : ClassBehaviour
     {
         foreach(Transform poolObj in this.poolObjs)
         {
+            if (poolObj == null) continue;
             //Kiem tra xem cos trung ten hay k
             // neu trung thi se spawn cai object do ra de su dung
             // va remove object trong pool di
-            if(poolObj.name == prefab.name)
+            if (poolObj.name == prefab.name)
             {
                 this.poolObjs.Remove(poolObj); 
                 return poolObj;

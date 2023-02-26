@@ -40,6 +40,29 @@ public class BulletImpart : BulletAbstract
     //Ham nay se dc goi khi Collider cua Bullet va cham voi Collider cua Meteorite
     protected virtual void OnTriggerEnter(Collider other)
     {
+        //kiem tra xem cai ma vien dan tuong tac voi "other" la gi
+        Debug.Log(other.transform.parent.name);
+        Debug.Log(other.transform.name);
+        //kiem tra neu vien dan va cai "other" collider co bang nhau k
+        if (other.transform.parent == this.bulletCtrl.Shooter) return;
+
         this.bulletCtrl.DamageSender.Send(other.transform);
+        this.CreateImpactFX(other);
+    }
+
+    protected virtual void CreateImpactFX(Collider other)
+    {
+        string fxName = this.GetImpactFX(); // lay ten hieu ung
+
+        Vector3 hitPos = transform.position;
+        Quaternion hitRot = transform.rotation;
+
+        Transform fxImpact = FXSpawner.Instance.Spawn(fxName, hitPos, hitRot); //spawn hieu ung ra
+        fxImpact.gameObject.SetActive(true);
+    }
+
+    protected virtual string GetImpactFX()
+    {
+        return FXSpawner.impact1;
     }
 }

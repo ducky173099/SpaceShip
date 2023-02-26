@@ -18,6 +18,6 @@ public class FollowTarget : ClassBehaviour
     {
         if (this.target == null) return;
         //Vi ham nay dc goi trong FixedUpdate nen ta phai dung Time.fixedDeltaTime, con k se dung Time.deltaTime
-        transform.position = Vector3.Lerp(transform.position, this.target.position, Time.fixedDeltaTime * speed);
+        transform.position = Vector3.Lerp(transform.position, this.target.position, Time.fixedDeltaTime * this.speed);
     }
 }

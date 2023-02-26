@@ -18,18 +18,18 @@ public class JunkSpawnerCtrl : ClassBehaviour
         this.LoadSpawnPoints();
     }
 
+    protected virtual void LoadJunkSpawner()
+    {
+        if (this.junkSpawner != null) return;
+        this.junkSpawner = GetComponent<JunkSpawner>(); // tu dong Load component JunkSpawner
+        Debug.Log(transform.name + ": LoadJunkCtrl", gameObject);
+    }
+
     protected virtual void LoadSpawnPoints()
     {
         if (this.junkSpawnPoints != null) return;
         // tu dong Load component SpawnPoints lien ket
         // Do lien ket den 1 gameobj cung cap, nen ta sd Transform de tim den
         this.junkSpawnPoints = Transform.FindObjectOfType<JunkSpawnPoints>();
-    }
-
-    protected virtual void LoadJunkSpawner()
-    {
-        if (this.junkSpawner != null) return;
-        this.junkSpawner = GetComponent<JunkSpawner>(); // tu dong Load component JunkSpawner
-        Debug.Log(transform.name + ": LoadJunkCtrl", gameObject);
     }
 }

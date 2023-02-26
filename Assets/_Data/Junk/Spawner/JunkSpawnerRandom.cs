@@ -26,11 +26,6 @@ public class JunkSpawnerRandom : ClassBehaviour
         Debug.Log(transform.name + ": LoadJunkCtrl", gameObject);
     }
 
-    protected override void Start()
-    {
-        //this.JunkSpawning();
-    }
-
     protected virtual void FixedUpdate()
     {
         this.JunkSpawning();

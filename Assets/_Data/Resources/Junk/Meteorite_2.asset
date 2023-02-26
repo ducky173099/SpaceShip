@@ -14,3 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   junkName: Meteorite 2
   hpMax: 4
+  dropList:
+  - itemSO: {fileID: 11400000, guid: 90fea62a563d00c4e9b87438f62781ac, type: 2}
+    dropRate: 50000
+    minDrop: 0
+    maxDrop: 0

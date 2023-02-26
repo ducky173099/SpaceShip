@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class JunkAbstract : ClassBehaviour
 {
+    [Header("Junk Abstract")]
+
     [SerializeField] protected JunkCtrl junkCtrl;
     public JunkCtrl JunkCtrl { get => junkCtrl; }
 
