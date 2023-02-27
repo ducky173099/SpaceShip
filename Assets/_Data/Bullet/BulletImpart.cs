@@ -47,9 +47,10 @@ public class BulletImpart : BulletAbstract
         if (other.transform.parent == this.bulletCtrl.Shooter) return;
 
         this.bulletCtrl.DamageSender.Send(other.transform);
-        this.CreateImpactFX(other);
+        // this.CreateImpactFX(other); 
     }
 
+    /*
     protected virtual void CreateImpactFX(Collider other)
     {
         string fxName = this.GetImpactFX(); // lay ten hieu ung
@@ -65,4 +66,5 @@ public class BulletImpart : BulletAbstract
     {
         return FXSpawner.impact1;
     }
+    */
 }

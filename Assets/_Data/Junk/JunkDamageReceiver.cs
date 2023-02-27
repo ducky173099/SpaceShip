@@ -23,9 +23,16 @@ public class JunkDamageReceiver : DamageReceiver
     protected override void OnDead() //ham nay dc goi khi object do bi huy
     {
         this.OnDeadFX(); //cai them hieu ung khi dead
+        this.OnDeadDrop();//roi item
         this.junkCtrl.JunkDespawn.DespawnObject();
-        //roi item
-        DropManager.Instance.Drop(this.junkCtrl.JunkSO.dropList);
+    }
+
+    protected virtual void OnDeadDrop()
+    {
+        Vector3 dropPos = transform.position; //lay vi tri hien tai cua thien thach
+        Quaternion dropRot = transform.rotation;//lay goc quay hien tai cua thien thach
+        //Truyen vao danh sach cac Item drop, vi tri xuat hien, goc quay
+        ItemDropSpawner.Instance.Drop(this.junkCtrl.JunkSO.dropList, dropPos, dropRot);
     }
 
     protected virtual void OnDeadFX()

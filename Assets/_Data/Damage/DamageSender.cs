@@ -13,17 +13,31 @@ public class DamageSender : ClassBehaviour
         DamageReceiver damageReceiver = obj.GetComponentInChildren<DamageReceiver>();
         if (damageReceiver == null) return;
         this.Send(damageReceiver); //neu no obj do thino co the nhan damage dc
+
+        //Ham nay dung de fix loi va cham cac vat the dung canh nhau nhu: vien dan khi ban ra bi cham luon vao con tau,
+        //nhat do,.. thi no bi coi nhu la 1 va cham
+        this.CreateImpactFX(); 
     }
 
     //ham nay se nhan damage tu damageSender truyen qua hamf Deduct cuar DamageReceiver
     public virtual void Send(DamageReceiver damageReceiver)
     {
         damageReceiver.Deduct(this.damage);
-        //this.DestroyObject(); //sau do se huy object
     }
 
-    //protected virtual void DestroyObject()
-    //{
-        //Destroy(transform.parent.gameObject);
-    //}
+    protected virtual void CreateImpactFX()
+    {
+        string fxName = this.GetImpactFX(); // lay ten hieu ung
+
+        Vector3 hitPos = transform.position;
+        Quaternion hitRot = transform.rotation;
+
+        Transform fxImpact = FXSpawner.Instance.Spawn(fxName, hitPos, hitRot); //spawn hieu ung ra
+        fxImpact.gameObject.SetActive(true);
+    }
+
+    protected virtual string GetImpactFX()
+    {
+        return FXSpawner.impact1;
+    }
 }
