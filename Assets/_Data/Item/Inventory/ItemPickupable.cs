@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 [RequireComponent(typeof(SphereCollider))]
-public class ItemPickupable : JunkAbstract
+public class ItemPickupable : ItemAbstract
 {
     [Header("item pickupable")]
 
@@ -35,7 +35,7 @@ public class ItemPickupable : JunkAbstract
         if (this._collider != null) return;
         this._collider = transform.GetComponent<SphereCollider>();
         this._collider.isTrigger = true;
-        this._collider.radius = 0.1f;
+        this._collider.radius = 0.2f;
     }
 
     //Lay ten cua itemCode
@@ -47,7 +47,7 @@ public class ItemPickupable : JunkAbstract
     //sau khi pick item thi no se bi despawn di
     public virtual void Picked()
     {
-        this.junkCtrl.JunkDespawn.DespawnObject();
+        this.itemCtrl.ItemDespawn.DespawnObject();
     }
 
   

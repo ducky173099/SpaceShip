@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed96ef179ef2df42bb09541ede0374c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  junkCtrl: {fileID: 0}
+  itemCtrl: {fileID: 724651465}
   _collider: {fileID: 190362491}
 --- !u!135 &190362491
 SphereCollider:
@@ -271,7 +271,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &197709349
 GameObject:
@@ -959,7 +959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed96ef179ef2df42bb09541ede0374c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  junkCtrl: {fileID: 0}
+  itemCtrl: {fileID: 690901476}
   _collider: {fileID: 537965241}
 --- !u!135 &537965241
 SphereCollider:
@@ -972,7 +972,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &538348752
 GameObject:
@@ -1014,10 +1014,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 538348752}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14d07846d0e44ad479ce38c02017a1f7, type: 3}
+  m_Script: {fileID: 11500000, guid: 46610d3dac44ee04d9dccefa7d9bade2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disLimit: 25
+  disLimit: 70
   distance: 0
   mainCam: {fileID: 519420032}
 --- !u!1 &543422926
@@ -1379,12 +1379,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 690901474}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25e589d3d5368ef40b9fe6b9dcf510af, type: 3}
+  m_Script: {fileID: 11500000, guid: c7f6ca10b29230a4eb9ea2ad7519e701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  model: {fileID: 2065191085}
-  junkDespawn: {fileID: 1687375095}
-  junkSO: {fileID: 11400000, guid: 139166e7af1bc2744ab6c84e90bb4413, type: 2}
+  itemDespawn: {fileID: 1687375095}
 --- !u!1 &724651463
 GameObject:
   m_ObjectHideFlags: 0
@@ -1410,7 +1408,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 724651463}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.757, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 769418771}
@@ -1428,12 +1426,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 724651463}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25e589d3d5368ef40b9fe6b9dcf510af, type: 3}
+  m_Script: {fileID: 11500000, guid: c7f6ca10b29230a4eb9ea2ad7519e701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  model: {fileID: 769418771}
-  junkDespawn: {fileID: 538348754}
-  junkSO: {fileID: 11400000, guid: 24acefa71349f3c419df0956c21fe62d, type: 2}
+  itemDespawn: {fileID: 538348754}
 --- !u!1 &769418770
 GameObject:
   m_ObjectHideFlags: 0
@@ -2767,10 +2763,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1687375093}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14d07846d0e44ad479ce38c02017a1f7, type: 3}
+  m_Script: {fileID: 11500000, guid: 46610d3dac44ee04d9dccefa7d9bade2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disLimit: 25
+  disLimit: 70
   distance: 0
   mainCam: {fileID: 519420032}
 --- !u!1 &1757118098

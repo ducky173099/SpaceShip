@@ -7,12 +7,6 @@ public class Inventory : ClassBehaviour
     [SerializeField] protected int maxSlot = 70;
     [SerializeField] protected List<ItemInventory> items; // danh sach item
 
-    protected override void Start()
-    {
-        base.Start();
-        //this.AddItem(ItemCode.IronOre, 3);
-    }
-
     // Ham nay de nhat item
     public virtual bool AddItem(ItemCode itemCode, int addCount) //No se nhan vao itemcode va so luong item
     {
@@ -23,6 +17,25 @@ public class Inventory : ClassBehaviour
         if (newCount > itemInventory.maxStack) return false; //dk la k dc vuot qua maxStack
 
         itemInventory.itemCount = newCount;
+        return true;
+    }
+
+    protected virtual bool DeductItem(ItemCode itemCode, int addCount)
+    {
+        ItemInventory itemInventory = this.GetItemByCode(itemCode);
+        int newCount = itemInventory.itemCount - addCount;
+        if(newCount < 0) return false;
+
+        itemInventory.itemCount = newCount;
+        return true;
+    }
+
+    //Ham nay kiem tra xem muon tru item k
+    public virtual bool TryDeductItem(ItemCode itemCode, int addCount)
+    {
+        ItemInventory itemInventory = this.GetItemByCode(itemCode);
+        int newCount = itemInventory.itemCount - addCount;
+        if(newCount < 0) return false;
         return true;
     }
 
