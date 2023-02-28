@@ -7,17 +7,181 @@ public class Inventory : ClassBehaviour
     [SerializeField] protected int maxSlot = 70;
     [SerializeField] protected List<ItemInventory> items; // danh sach item
 
+    public List<ItemInventory> Items => items;
+
+    protected override void Start()
+    {
+        base.Start();
+        this.AddItem(ItemCode.CopperSword, 1);
+        this.AddItem(ItemCode.GoldOre, 3);
+        this.AddItem(ItemCode.IronOre, 34);
+
+    }
+
     // Ham nay de nhat item
     public virtual bool AddItem(ItemCode itemCode, int addCount) //No se nhan vao itemcode va so luong item
     {
-        ItemInventory itemInventory = this.GetItemByCode(itemCode); //Tim trong ds item da ton tai itemCode nay chua
+        ItemProfileSO itemProfile = this.GetItemProfile(itemCode);
+
+        int addRemain = addCount;
+        int newCount;
+        int itemMaxStack;
+        int addMore;
+        ItemInventory itemExist;
+
+        for(int i = 0; i < this.maxSlot; i++)
+        {
+            itemExist = this.GetItemNotFullStack(itemCode); //kiem tra xem trong inventory hien tai da cos san slot nao chua
+            if(itemExist == null) //newu nhu k tim thay itemCOde hoac null
+            {
+                if (this.IsInventory()) return false;
+
+                //tao ra 1 item empty va add vao
+                itemExist = this.CreateEmptyItem(itemProfile);
+                this.items.Add(itemExist);
+            }
+
+            //neu trong truong hop tim thay itemCode
+            newCount = itemExist.itemCount + addRemain;
+
+            //tinh toan xem slot hien tai con phai + bao nhieu thi de full stack do
+            itemMaxStack = this.GetMaxStack(itemExist);
+            if(newCount > itemMaxStack)
+            {
+                addMore = itemMaxStack - itemExist.itemCount;
+                newCount = itemExist.itemCount + addMore;
+                addRemain -= addMore;
+            }
+            else
+            {
+                addRemain -= newCount;
+            }
+
+            itemExist.itemCount = newCount;
+            if (addRemain < 1) break;
+        }
+
+        return true;
+    }
+
+    protected virtual bool IsInventory()
+    {
+        if (this.items.Count >= this.maxSlot) return true;
+
+        return false;
+    }
+
+    protected virtual int GetMaxStack(ItemInventory itemInventory)
+    {
+        if (itemInventory == null) return 0;
+        return itemInventory.maxStack;
+    }
+
+    protected virtual ItemProfileSO GetItemProfile(ItemCode itemCode)
+    {
+        var profiles = Resources.LoadAll("Item", typeof(ItemProfileSO));
+        foreach (ItemProfileSO profile in profiles)
+        {
+            if(profile.itemCode != itemCode) continue;
+            return profile;
+        }
+
+        return null;
+    }
+
+    protected virtual ItemInventory GetItemNotFullStack(ItemCode itemCode)
+    {
+        foreach(ItemInventory itemInventory in this.items) //duyet qua tung item trong game
+        {
+            //check xem item nao == voi itemCode
+            if (itemCode != itemInventory.itemProfile.itemCode) continue; //neu k bang thi se bo qua inventory do
+            //neu == thi se kiem tra xem da full hay chua
+            if (this.IsFullStack(itemInventory)) continue;  //neu full thi se bo qua
+            return itemInventory; //neu dung item k full va == itemCode thif se return
+        }
+        return null;
+    }
+
+    protected virtual bool IsFullStack(ItemInventory itemInventory)
+    {
+        if(itemInventory == null) return false;
+
+        int maxStack = this.GetMaxStack(itemInventory);
+        return itemInventory.itemCount >= maxStack;
+    }
+
+    protected virtual ItemInventory CreateEmptyItem(ItemProfileSO itemProfile)
+    {
+        ItemInventory itemInventory = new ItemInventory
+        {
+            itemProfile = itemProfile,
+            maxStack = itemProfile.defaultMaxStack
+        };
+
+        return itemInventory;
+    }
+
+    public virtual bool ItemCheck(ItemCode itemCode, int numberCheck)
+    {
+        int totalCount = this.ItemTotalCount(itemCode);
+        return totalCount >= numberCheck;
+    }
+
+    public virtual int ItemTotalCount(ItemCode itemCode)
+    {
+        int totalCount = 0;
+        foreach(ItemInventory itemInventory in this.items)
+        {
+            if(itemInventory.itemProfile.itemCode != itemCode) continue;
+            totalCount += itemInventory.itemCount;
+        }
+
+        return totalCount;
+    }
+
+    public virtual void DeductItem(ItemCode itemCode, int deductCount)
+    {
+        ItemInventory itemInventory;
+        int deduct;
+        for(int i = this.items.Count - 1; i >= 0; i--)
+        {
+            if (deductCount <= 0) break;
+
+            itemInventory = this.items[i];
+            if (itemInventory.itemProfile.itemCode != itemCode) continue;
+
+            if(deductCount > itemInventory.itemCount)
+            {
+                deduct = itemInventory.itemCount;
+                deductCount -= itemInventory.itemCount;
+            }
+            else
+            {
+                deduct = deductCount;
+                deductCount = 0;
+            }
+
+            itemInventory.itemCount = deduct;
+        }
+    }
+
+
+
+
+
+
+    /*
+     * 
+         public virtual bool AddItem(ItemCode itemCode, int addCount) //No se nhan vao itemcode va so luong item
+    {
+        //ItemInventory itemInventory = this.GetItemByCode(itemCode); //Tim trong ds item da ton tai itemCode nay chua
 
         //cong don item do neu co r
-        int newCount = itemInventory.itemCount + addCount;
-        if (newCount > itemInventory.maxStack) return false; //dk la k dc vuot qua maxStack
+        //int newCount = itemInventory.itemCount + addCount;
+        //if (newCount > itemInventory.maxStack) return false; //dk la k dc vuot qua maxStack
 
-        itemInventory.itemCount = newCount;
-        return true;
+        //itemInventory.itemCount = newCount;
+        //return true;
     }
 
     protected virtual bool DeductItem(ItemCode itemCode, int addCount)
@@ -48,8 +212,8 @@ public class Inventory : ClassBehaviour
     }
     protected virtual ItemInventory AddEmptyProfile(ItemCode itemCode)
     {
-        //load all resource trong ItemProfiles
-        var profiles = Resources.LoadAll("ItemProfiles", typeof(ItemProfileSO));
+        //load all resource trong Item
+        var profiles = Resources.LoadAll("Item", typeof(ItemProfileSO));
         foreach (ItemProfileSO profile in profiles)
         {
             if (profile.itemCode != itemCode) continue;
@@ -64,4 +228,5 @@ public class Inventory : ClassBehaviour
 
         return null;
     }
+    */
 }

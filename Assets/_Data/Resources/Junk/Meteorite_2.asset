@@ -15,7 +15,7 @@ MonoBehaviour:
   junkName: Meteorite 2
   hpMax: 4
   dropList:
-  - itemSO: {fileID: 11400000, guid: 90fea62a563d00c4e9b87438f62781ac, type: 2}
-    dropRate: 50000
+  - itemSO: {fileID: 11400000, guid: eceb398a6825ab84baaaeeab7f4179f8, type: 2}
+    dropRate: 0
     minDrop: 0
     maxDrop: 0

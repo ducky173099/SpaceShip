@@ -10,9 +10,9 @@ using UnityEngine;
 //Class nay se lien ket voi class Inventory
 //Class Inventory se biet den thang Ship
 // Inventory dung giua nhu la trung gian
-public class ItemLooter : ClassBehaviour
+public class ItemLooter : InventoryAbstract
 {
-    [SerializeField] protected Inventory inventory;
+    //[SerializeField] protected Inventory inventory;
     [SerializeField] protected SphereCollider _collider;
     [SerializeField] protected Rigidbody _rigidbody;
 
