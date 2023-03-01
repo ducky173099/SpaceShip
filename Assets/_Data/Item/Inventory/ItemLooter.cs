@@ -12,22 +12,14 @@ using UnityEngine;
 // Inventory dung giua nhu la trung gian
 public class ItemLooter : InventoryAbstract
 {
-    //[SerializeField] protected Inventory inventory;
     [SerializeField] protected SphereCollider _collider;
     [SerializeField] protected Rigidbody _rigidbody;
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        this.LoadInventory();
         this.LoadTrigger();
         this.LoadRigidbody();
-    }
-
-    protected virtual void LoadInventory()
-    {
-        if (this.inventory != null) return;
-        this.inventory = transform.parent.GetComponent<Inventory>();
     }
 
     protected virtual void LoadTrigger()
@@ -53,12 +45,12 @@ public class ItemLooter : InventoryAbstract
         ItemPickupable itemPickupable = collider.GetComponent<ItemPickupable>(); //lay component item
          //kt neu co item pickup thi xu ly, con k thi bo qua
         if (itemPickupable == null) return;
-        Debug.Log(collider.name);
-        Debug.Log(collider.transform.parent.name);
-        Debug.Log("====> Co the pick do");
+        //Debug.Log(collider.name);
+        //Debug.Log(collider.transform.parent.name);
+        //Debug.Log("====> Co the pick do");
 
-        ItemCode itemCode = itemPickupable.GetItemCode();
-        if(this.inventory.AddItem(itemCode, 1))
+        ItemInventory itemInventory = itemPickupable.ItemCtrl.ItemInventory;
+        if(this.inventory.AddItem(itemInventory))
         {
             itemPickupable.Picked();
         }

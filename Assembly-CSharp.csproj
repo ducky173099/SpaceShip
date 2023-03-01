@@ -61,8 +61,10 @@
     <Compile Include="Assets\_Data\Junk\Spawner\JunkSpawnerCtrl.cs" />
     <Compile Include="Assets\_Data\Spawner\SpawnPoints.cs" />
     <Compile Include="Assets\_Data\Item\ItemCtrl.cs" />
+    <Compile Include="Assets\_Data\Item\Inventory\ItemRecipeIngredient.cs" />
     <Compile Include="Assets\_Data\Bullet\BulletCtrl.cs" />
     <Compile Include="Assets\_Data\Item\ItemDespawn.cs" />
+    <Compile Include="Assets\_Data\Item\Inventory\ItemUpgrade.cs" />
     <Compile Include="Assets\2D Pixel Spaceships (2 Small Ships + Explosions)\Scripts\SceneController.cs" />
     <Compile Include="Assets\_Data\Despawn\DespawnByDistance.cs" />
     <Compile Include="Assets\_Data\Player\PlayerCtrl.cs" />
@@ -91,6 +93,8 @@
     <Compile Include="Assets\_Data\Scripts\ParentFly.cs" />
     <Compile Include="Assets\_Data\Item\Inventory\Inventory.cs" />
     <Compile Include="Assets\_Data\Player\PlayerAbstract.cs" />
+    <Compile Include="Assets\_Data\Item\Inventory\InventoryDrop.cs" />
+    <Compile Include="Assets\_Data\Item\Inventory\ItemRecipe.cs" />
     <Compile Include="Assets\_Data\Junk\JunkRotate.cs" />
     <Compile Include="Assets\_Data\FX\FXDespawn.cs" />
     <Compile Include="Assets\_Data\Item\ItemDropSpawner.cs" />
@@ -105,6 +109,7 @@
     <Compile Include="Assets\2D Pixel Spaceships (2 Small Ships + Explosions)\Scripts\Tools.cs" />
     <Compile Include="Assets\_Data\Ship\ShipMovement.cs" />
     <Compile Include="Assets\_Data\Spawner\Spawner.cs" />
+    <Compile Include="Assets\_Data\Item\Inventory\InventoryAbstract.cs" />
     <Compile Include="Assets\_Data\Spawner\BulletSpawner.cs" />
     <Compile Include="Assets\_Data\Item\Inventory\ItemInventory.cs" />
     <Compile Include="Assets\_Data\Despawn\DespawnByTime.cs" />
@@ -112,10 +117,10 @@
     <Compile Include="Assets\_Data\Bullet\BulletDamSender.cs" />
     <Compile Include="Assets\_Data\Scripts\GameCtrl.cs" />
     <Compile Include="Assets\_Data\Spawner\JunkSpawner.cs" />
-    <Compile Include="Assets\_Data\Item\Inventory\ItemUpgrade.cs" />
-    <Compile Include="Assets\_Data\Item\Inventory\InventoryAbstract.cs" />
-    <Compile Include="Assets\_Data\Item\Inventory\ItemRecipe.cs" />
-    <Compile Include="Assets\_Data\Item\Inventory\ItemRecipeIngredient.cs" />
+    <Compile Include="Assets\_Data\Map\MapCtrl.cs" />
+    <Compile Include="Assets\_Data\Map\MapLevel.cs" />
+    <Compile Include="Assets\_Data\Level\Level.cs" />
+    <Compile Include="Assets\_Data\Level\LevelByDistance.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

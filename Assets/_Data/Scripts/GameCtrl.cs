@@ -12,6 +12,8 @@ public class GameCtrl : ClassBehaviour
 
     protected override void Awake()
     {
+        Debug.Log(transform.name + ": Awake", gameObject);
+
         base.Awake();
         if (GameCtrl.instance != null) Debug.LogError("Only 1 GameManager allow to exist");
         GameCtrl.instance = this; //Singleton

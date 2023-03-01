@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,13 +14,21 @@ public class ItemPickupable : ItemAbstract
     //giai thuat chuyen string thanh Enum
     public static ItemCode String2ItemCode(string itemName)
     {
-        return (ItemCode)System.Enum.Parse(typeof(ItemCode), itemName);
+        try
+        {
+            return (ItemCode)System.Enum.Parse(typeof(ItemCode), itemName);
+        }
+        catch (ArgumentException e)
+        {
+            Debug.LogError(e.ToString());
+            return ItemCode.NoItem;
+        }
     }
 
     //ham click chuot de nhat do
     public virtual void OnMouseDown()
     {
-        Debug.Log(transform.parent.name);
+        //Debug.Log(transform.parent.name);
         // this: dai dien cho class ItemPickupable
         PlayerCtrl.Instance.PlayerPickup.ItemPickup(this);
     }

@@ -13,12 +13,41 @@ public class Inventory : ClassBehaviour
     {
         base.Start();
         this.AddItem(ItemCode.CopperSword, 1);
-        this.AddItem(ItemCode.GoldOre, 3);
-        this.AddItem(ItemCode.IronOre, 34);
+        this.AddItem(ItemCode.GoldOre, 10);
+        this.AddItem(ItemCode.IronOre, 10);
 
     }
 
-    // Ham nay de nhat item
+    //add item tu inventory khi pick do bi roi ra khi dc nang cap
+    //add item ma giu nguyen level chi tac dung cho nhung item la equiment
+    public virtual bool AddItem(ItemInventory itemInventory)
+    {
+        int addCount = itemInventory.itemCount;
+        ItemProfileSO itemProfile = itemInventory.itemProfile;
+        ItemCode itemCode = itemProfile.itemCode;
+        ItemType itemType = itemProfile.itemType;
+
+        if (itemType == ItemType.Equiment) return this.AddEquiment(itemInventory);
+        return this.AddItem(itemCode, addCount);
+    }
+
+    public virtual bool AddEquiment(ItemInventory itemPicked)
+    {
+        if (this.IsInventoryFull()) return false;
+
+        ItemInventory item = itemPicked.Clone();
+        /*
+        ItemInventory item = new ItemInventory();
+        item.itemProfile = itemPicked.itemProfile;
+        item.itemCount = itemPicked.itemCount;
+        item.upgradeLevel = itemPicked.upgradeLevel;
+        */
+
+        this.items.Add(item);
+        return true;
+    }
+
+    // Ham nay de nhat item la resource
     public virtual bool AddItem(ItemCode itemCode, int addCount) //No se nhan vao itemcode va so luong item
     {
         ItemProfileSO itemProfile = this.GetItemProfile(itemCode);
@@ -29,12 +58,12 @@ public class Inventory : ClassBehaviour
         int addMore;
         ItemInventory itemExist;
 
-        for(int i = 0; i < this.maxSlot; i++)
+        for (int i = 0; i < this.maxSlot; i++)
         {
             itemExist = this.GetItemNotFullStack(itemCode); //kiem tra xem trong inventory hien tai da cos san slot nao chua
             if(itemExist == null) //newu nhu k tim thay itemCOde hoac null
             {
-                if (this.IsInventory()) return false;
+                if (this.IsInventoryFull()) return false;
 
                 //tao ra 1 item empty va add vao
                 itemExist = this.CreateEmptyItem(itemProfile);
@@ -64,7 +93,7 @@ public class Inventory : ClassBehaviour
         return true;
     }
 
-    protected virtual bool IsInventory()
+    protected virtual bool IsInventoryFull()
     {
         if (this.items.Count >= this.maxSlot) return true;
 
@@ -104,7 +133,7 @@ public class Inventory : ClassBehaviour
 
     protected virtual bool IsFullStack(ItemInventory itemInventory)
     {
-        if(itemInventory == null) return false;
+        if (itemInventory == null) return true;
 
         int maxStack = this.GetMaxStack(itemInventory);
         return itemInventory.itemCount >= maxStack;
@@ -127,12 +156,12 @@ public class Inventory : ClassBehaviour
         return totalCount >= numberCheck;
     }
 
-    public virtual int ItemTotalCount(ItemCode itemCode)
+    public virtual int ItemTotalCount(ItemCode itemCode)//check count trong item
     {
         int totalCount = 0;
-        foreach(ItemInventory itemInventory in this.items)
+        foreach (ItemInventory itemInventory in this.items)
         {
-            if(itemInventory.itemProfile.itemCode != itemCode) continue;
+            if (itemInventory.itemProfile.itemCode != itemCode) continue;
             totalCount += itemInventory.itemCount;
         }
 
@@ -143,14 +172,14 @@ public class Inventory : ClassBehaviour
     {
         ItemInventory itemInventory;
         int deduct;
-        for(int i = this.items.Count - 1; i >= 0; i--)
+        for (int i = this.items.Count - 1; i >= 0; i--)
         {
             if (deductCount <= 0) break;
 
             itemInventory = this.items[i];
             if (itemInventory.itemProfile.itemCode != itemCode) continue;
 
-            if(deductCount > itemInventory.itemCount)
+            if (deductCount > itemInventory.itemCount)
             {
                 deduct = itemInventory.itemCount;
                 deductCount -= itemInventory.itemCount;
@@ -161,13 +190,26 @@ public class Inventory : ClassBehaviour
                 deductCount = 0;
             }
 
-            itemInventory.itemCount = deduct;
+            itemInventory.itemCount -= deduct;
         }
+
+
+        this.ClearEmptySlot();
     }
 
 
-
-
+    //Ham nay dung de remove cac slot item co count = 0 trong inventory
+    protected virtual void ClearEmptySlot()
+    {
+        //for() co the thay doi phan tu ben trong tap hop hoac co the truy cap cac item truoc hoac sau vong duyet hien tai
+        //foreach chi dung de duyet mang
+        ItemInventory itemInventory;
+        for (int i = 0; i < this.items.Count; i++)
+        {
+            itemInventory = this.items[i];
+            if (itemInventory.itemCount == 0) this.items.RemoveAt(i);
+        }
+    }
 
 
     /*

@@ -9,11 +9,6 @@ public class DespawnByDistance : Despawn
     [SerializeField] protected float distance = 0f; //dung de kiem tra khoang cach tu vi tri hien tai cua vien dan den camera
     [SerializeField] protected Transform mainCam; //camera
 
-    //protected virtual void FixedUpdate()
-    //{
-        //this.Despawning();
-    //}
-
     protected override void LoadComponents()
     {
         this.LoadCamera();

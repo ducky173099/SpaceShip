@@ -22,4 +22,21 @@ public class ItemDropSpawner : Spawner
         if (itemDrop == null) return;
         itemDrop.gameObject.SetActive(true);
     }
+
+    //Ham drop nay la drop ra item sau khi dc nang cap
+    public virtual Transform Drop(ItemInventory itemInventory, Vector3 pos, Quaternion rot)
+    {
+        ItemCode itemCode = itemInventory.itemProfile.itemCode;
+
+        Transform itemDrop = this.Spawn(itemCode.ToString(), pos, rot);
+        if (itemDrop == null) return null;
+        itemDrop.gameObject.SetActive(true);
+
+        //tao lien ket
+        //de luc roi do ra, thong so cua item dc nang cap van dc giu nguyen
+        ItemCtrl itemCtrl = itemDrop.GetComponent<ItemCtrl>();
+        itemCtrl.SetItemInventory(itemInventory);
+
+        return itemDrop;
+    }
 }

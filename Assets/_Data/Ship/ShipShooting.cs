@@ -9,7 +9,7 @@ public class ShipShooting : MonoBehaviour
     [SerializeField] protected float shootTimer = 0f; // bo dem thoi gian
     //[SerializeField] protected Transform bulletPrefab;
 
-    private void Update()
+    void Update()
     {
         this.IsShooting();
     }

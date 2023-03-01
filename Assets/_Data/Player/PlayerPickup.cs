@@ -8,10 +8,10 @@ public class PlayerPickup : PlayerAbstract
     //ham nay se add item nhat dc vao Inventory va sau do se despawn item do
     public virtual void ItemPickup(ItemPickupable itemPickupable)
     {
-        Debug.Log("ItemPickup");
+        ItemInventory itemInventory = itemPickupable.ItemCtrl.ItemInventory;
+        //Debug.Log(itemPickupable.ItemCtrl.ItemInventory.itemProfile.upgradeLevels + "======> itemPickupable: ");
 
-        ItemCode itemCode = itemPickupable.GetItemCode();
-        if (this.playerCtrl.CurrentShip.Inventory.AddItem(itemCode, 1))
+        if (this.playerCtrl.CurrentShip.Inventory.AddItem(itemInventory))
         {
             itemPickupable.Picked();
         }

@@ -12,7 +12,9 @@ public class ItemUpgrade : InventoryAbstract
     {
         base.Start();
 
+        Invoke(nameof(this.Test), 1);
         Invoke(nameof(this.Test), 2);
+        Invoke(nameof(this.Test), 3);
     }
 
     protected virtual void Test()
@@ -53,7 +55,7 @@ public class ItemUpgrade : InventoryAbstract
 
 
         //kiem tra xem level hien tai tai co nang cap dc len level tiep theo hay k
-        if (currentLevel > upgradeLevels.Count)
+        if (currentLevel >= upgradeLevels.Count)
         {
             Debug.LogError("Item cant upgrade anymore, current: " + currentLevel);
             return false;

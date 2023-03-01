@@ -22,7 +22,8 @@ public class JunkFly : ParentFly
     //Ham nay tinh toan lai duong bay cua thien thach
     protected virtual void GetFlyDirection()
     {
-        Vector3 camPos = GameCtrl.Instance.MainCamera.transform.position; //Lay vi tri camera
+        //Vector3 camPos = GameCtrl.Instance.MainCamera.transform.position; //Lay vi tri camera
+        Vector3 camPos = this.GetCamPos(); //Lay vi tri camera
         Vector3 objPos = transform.parent.position; //Lay vi tri hien tai cua obj
 
         camPos.x += Random.Range(this.minCamPos, this.maxCamPos); //random truc X de thay doi tam cua camera
@@ -34,5 +35,13 @@ public class JunkFly : ParentFly
         transform.parent.rotation = Quaternion.Euler(0f, 0f, rot_z);
 
         Debug.DrawLine(objPos, objPos + diff * 7, Color.red, Mathf.Infinity); // khi log ra tren man hinh se ve ra huong di chuyen cua vat the
+    }
+
+    protected virtual Vector3 GetCamPos()
+    {
+        if (GameCtrl.Instance == null) return Vector3.zero;
+        Vector3 camPos = GameCtrl.Instance.MainCamera.transform.position; //Lay vi tri camera
+        return camPos;
+
     }
 }

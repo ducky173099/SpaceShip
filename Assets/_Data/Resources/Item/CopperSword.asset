@@ -22,3 +22,13 @@ MonoBehaviour:
       itemCount: 2
     - itemProfile: {fileID: 11400000, guid: 231b54bdea3d27e4fba11953c4176e14, type: 2}
       itemCount: 2
+  - ingredients:
+    - itemProfile: {fileID: 11400000, guid: eceb398a6825ab84baaaeeab7f4179f8, type: 2}
+      itemCount: 3
+    - itemProfile: {fileID: 11400000, guid: 231b54bdea3d27e4fba11953c4176e14, type: 2}
+      itemCount: 3
+  - ingredients:
+    - itemProfile: {fileID: 11400000, guid: eceb398a6825ab84baaaeeab7f4179f8, type: 2}
+      itemCount: 5
+    - itemProfile: {fileID: 11400000, guid: 231b54bdea3d27e4fba11953c4176e14, type: 2}
+      itemCount: 4
