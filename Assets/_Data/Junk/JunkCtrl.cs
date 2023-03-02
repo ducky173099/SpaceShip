@@ -11,8 +11,9 @@ public class JunkCtrl : ClassBehaviour
     [SerializeField] protected JunkDespawn junkDespawn;
     public JunkDespawn JunkDespawn { get => junkDespawn; }
 
-    [SerializeField] protected JunkSO junkSO;
-    public JunkSO JunkSO { get => junkSO; }
+    [SerializeField] protected ShootableObjectSO shootableObject;
+    public ShootableObjectSO ShootableObject { get => shootableObject; }
+
 
     protected override void LoadComponents()
     {
@@ -37,11 +38,11 @@ public class JunkCtrl : ClassBehaviour
 
     protected virtual void LoadJunkSO()
     {
-        if(this.junkSO != null) return;
+        if(this.shootableObject != null) return;
         // tao duong dan den JunkSO
         // Junk: la ten folder trong folder Resources
         // transform.name: la ten item prefab (vd: o day la cac thien thach Meteorite_1, Meteorite_2,...)
-        string resPath = "Junk/" + transform.name; 
-        this.junkSO = Resources.Load<JunkSO>(resPath); //dung ham Resources.Load de tao lien ket
+        string resPath = "ShootableObject/Junk/" + transform.name; 
+        this.shootableObject = Resources.Load<ShootableObjectSO>(resPath); //dung ham Resources.Load de tao lien ket
     }
 }

@@ -69,6 +69,7 @@
     <Compile Include="Assets\_Data\Despawn\DespawnByDistance.cs" />
     <Compile Include="Assets\_Data\Player\PlayerCtrl.cs" />
     <Compile Include="Assets\_Data\Item\ItemType.cs" />
+    <Compile Include="Assets\_Data\Level\LevelByDistance.cs" />
     <Compile Include="Assets\_Data\Item\ItemAbstract.cs" />
     <Compile Include="Assets\2D Pixel Spaceships (2 Small Ships + Explosions)\Scripts\ships\BaseBulletStarter.cs" />
     <Compile Include="Assets\_Data\Junk\Spawner\JunkSpawnPoints.cs" />
@@ -83,10 +84,12 @@
     <Compile Include="Assets\_Data\Junk\JunkFly.cs" />
     <Compile Include="Assets\_Data\Bullet\BulletImpart.cs" />
     <Compile Include="Assets\_Data\Junk\Spawner\JunkSpawnerRandom.cs" />
+    <Compile Include="Assets\_Data\Map\WormHole\WormHole.cs" />
     <Compile Include="Assets\_Data\Bullet\BulletFly.cs" />
     <Compile Include="Assets\_Data\Item\Inventory\ItemLooter.cs" />
     <Compile Include="Assets\_Data\Junk\JunkAbstract.cs" />
     <Compile Include="Assets\_Data\InputManager.cs" />
+    <Compile Include="Assets\_Data\Map\MapCtrl.cs" />
     <Compile Include="Assets\_Data\Junk\JunkDespawn.cs" />
     <Compile Include="Assets\_Data\Junk\JunkDamageReceiver.cs" />
     <Compile Include="Assets\_Data\Ship\ShipCtrl.cs" />
@@ -95,6 +98,7 @@
     <Compile Include="Assets\_Data\Player\PlayerAbstract.cs" />
     <Compile Include="Assets\_Data\Item\Inventory\InventoryDrop.cs" />
     <Compile Include="Assets\_Data\Item\Inventory\ItemRecipe.cs" />
+    <Compile Include="Assets\_Data\Map\MapLevel.cs" />
     <Compile Include="Assets\_Data\Junk\JunkRotate.cs" />
     <Compile Include="Assets\_Data\FX\FXDespawn.cs" />
     <Compile Include="Assets\_Data\Item\ItemDropSpawner.cs" />
@@ -102,7 +106,7 @@
     <Compile Include="Assets\_Data\Spawner\FXSpawner.cs" />
     <Compile Include="Assets\_Data\Item\Inventory\ItemPickupable.cs" />
     <Compile Include="Assets\_Data\Scripts\FollowTarget.cs" />
-    <Compile Include="Assets\_Data\Resources\Junk\JunkSO.cs" />
+    <Compile Include="Assets\_Data\ShootableObject\ShootableObjectSO.cs" />
     <Compile Include="Assets\_Data\Damage\DamageReceiver.cs" />
     <Compile Include="Assets\_Data\Item\DropRate.cs" />
     <Compile Include="Assets\2D Pixel Spaceships (2 Small Ships + Explosions)\Scripts\ships\ExplosionController.cs" />
@@ -113,14 +117,17 @@
     <Compile Include="Assets\_Data\Spawner\BulletSpawner.cs" />
     <Compile Include="Assets\_Data\Item\Inventory\ItemInventory.cs" />
     <Compile Include="Assets\_Data\Despawn\DespawnByTime.cs" />
+    <Compile Include="Assets\_Data\ShootableObject\ObjectType.cs" />
     <Compile Include="Assets\_Data\Bullet\BulletAbstract.cs" />
     <Compile Include="Assets\_Data\Bullet\BulletDamSender.cs" />
     <Compile Include="Assets\_Data\Scripts\GameCtrl.cs" />
     <Compile Include="Assets\_Data\Spawner\JunkSpawner.cs" />
-    <Compile Include="Assets\_Data\Map\MapCtrl.cs" />
-    <Compile Include="Assets\_Data\Map\MapLevel.cs" />
     <Compile Include="Assets\_Data\Level\Level.cs" />
-    <Compile Include="Assets\_Data\Level\LevelByDistance.cs" />
+    <Compile Include="Assets\_Data\ShootableObject\Enemy\EnemyCtrl.cs" />
+    <Compile Include="Assets\_Data\ShootableObject\ShootableObjectCtrl.cs" />
+    <Compile Include="Assets\_Data\ShootableObject\Enemy\EnemyDespawn.cs" />
+    <Compile Include="Assets\_Data\ShootableObject\Enemy\EnemySpawner.cs" />
+    <Compile Include="Assets\_Data\ShootableObject\ShootableObjectDamReceiver.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

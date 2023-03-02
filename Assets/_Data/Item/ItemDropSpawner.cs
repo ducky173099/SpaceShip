@@ -17,6 +17,7 @@ public class ItemDropSpawner : Spawner
     //Lay danh sach vat pham drop
     public virtual void Drop(List<DropRate> dropList, Vector3 pos, Quaternion rot)
     {
+        if (dropList.Count < 1) return;
         ItemCode itemCode = dropList[0].itemSO.itemCode; //lay itemCode cua item dau tien
         Transform itemDrop = this.Spawn(itemCode.ToString(), pos, rot);
         if (itemDrop == null) return;

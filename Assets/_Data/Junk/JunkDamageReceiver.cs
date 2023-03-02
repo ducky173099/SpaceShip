@@ -32,7 +32,7 @@ public class JunkDamageReceiver : DamageReceiver
         Vector3 dropPos = transform.position; //lay vi tri hien tai cua thien thach
         Quaternion dropRot = transform.rotation;//lay goc quay hien tai cua thien thach
         //Truyen vao danh sach cac Item drop, vi tri xuat hien, goc quay
-        ItemDropSpawner.Instance.Drop(this.junkCtrl.JunkSO.dropList, dropPos, dropRot);
+        ItemDropSpawner.Instance.Drop(this.junkCtrl.ShootableObject.dropList, dropPos, dropRot);
     }
 
     protected virtual void OnDeadFX()
@@ -52,7 +52,7 @@ public class JunkDamageReceiver : DamageReceiver
         //ta gan lai gia tri cua hpMax truoc khi chay base.Reborn()
         // boi vi truoc khi no gan hp = hpMax ben ham tu class cha
         // ta gan hpMax = hpMax tu class JunkSO
-        this.hpMax = this.junkCtrl.JunkSO.hpMax;
+        this.hpMax = this.junkCtrl.ShootableObject.hpMax;
         base.Reborn();
     }
 }
